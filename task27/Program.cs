@@ -6,9 +6,21 @@
 
 Console.WriteLine("Ведите число: ");
 int num = Convert.ToInt32(Console.ReadLine());
-int sum = 0;
-while(num > 0 ){
-    num /= 10;
-    sum += num;
+
+int SumNum(int number)
+{
+    int originalNum = number;
+    int sum = 0;
+    int x = 1;
+    
+    while (number > 10)
+    {
+        sum = sum + number % 10;
+        number /= 10;
+        x *= 10;
+    }
+    return sum + originalNum / x;
 }
-Console.WriteLine(sum);
+int res = SumNum(num);
+Console.WriteLine($"сумма цифр в числе {num} = {res}");
+
